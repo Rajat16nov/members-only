@@ -1,0 +1,15 @@
+<h1>Posts</h1>
+
+<%= link_to 'New Post', new_post_path %>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <strong>Title:</strong> <%= post.title %><br>
+      <% if user_signed_in? %>
+        <strong>Author:</strong> <%= post.user.email %>
+      <% end %>
+      <p><%= post.content %></p>
+    </li>
+  <% end %>
+</ul>
